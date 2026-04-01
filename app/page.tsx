@@ -45,9 +45,25 @@ const processSteps = [
   },
 ]
 
-export default async function HomePage() {
+const archivePageSize = 4
+
+type HomePageProps = {
+  searchParams: Promise<{
+    page?: string
+  }>
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const { page } = await searchParams
   const articles = await getAllArticles()
-  const [leadStory, ...latestStories] = articles
+  const [leadStory, ...archiveStories] = articles
+  const currentPage = Math.max(1, Number.parseInt(page ?? '1', 10) || 1)
+  const totalPages = Math.max(1, Math.ceil(archiveStories.length / archivePageSize))
+  const safePage = Math.min(currentPage, totalPages)
+  const paginatedStories = archiveStories.slice(
+    (safePage - 1) * archivePageSize,
+    safePage * archivePageSize,
+  )
 
   return (
     <div className="page-shell">
@@ -59,15 +75,19 @@ export default async function HomePage() {
           </Link>
           <nav className="top-nav" aria-label="Primary">
             <a href="#top-story">Top story</a>
-            <a href="#latest">Latest</a>
+            <a href="#latest">Approach</a>
+            <a href="#archive">Latest</a>
             <a href="#method">Method</a>
-            <a href="#launch">Publish API</a>
+            <a href="#launch">Publishing</a>
           </nav>
         </div>
         <div className="edition-bar">
-          <span>Hackathon edition</span>
-          <span>Autonomous newsroom prototype</span>
-          <span>Serious stories, no human editorial bottleneck</span>
+          <span>World</span>
+          <span>Business</span>
+          <span>Tech</span>
+          <span>Climate</span>
+          <span>Policy</span>
+          <span>Opinion</span>
         </div>
       </header>
 
@@ -97,11 +117,11 @@ export default async function HomePage() {
 
         <section className="front-grid" id="latest">
           <div className="front-grid__lead fade-up">
-            <p className="section-label">What makes this different</p>
+            <p className="section-label">Byline approach</p>
             <h2>A front page designed like a newsroom, not a prompt box</h2>
             <p>
-              The first thing readers should feel is editorial confidence. The first thing judges should
-              see is that the product knows how to present consequence, hierarchy, and depth.
+              The first thing readers should feel is editorial confidence: a strong lead, clear hierarchy,
+              and a sense that the story selection is driven by consequence rather than chatter.
             </p>
           </div>
           <div className="front-grid__columns">
@@ -119,28 +139,53 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <section className="split-section">
+        <section className="split-section" id="archive">
           <div className="split-section__feature fade-up">
             <p className="section-label">Latest coverage</p>
-            <h2>The page should immediately answer what changed and why it matters</h2>
+            <h2>A plain date-sorted archive that lets the reporting carry the page</h2>
             <p>
-              Byline is built around article packages that can stand on their own: a clear nut graph,
-              supporting context, and visible sourcing logic that makes the output feel reportorial.
+              The featured story leads the homepage. Everything below it should read like a live news desk:
+              timestamped, orderly, and easy to scan without repeating the hero.
             </p>
           </div>
-          <div className="story-stack">
-            {latestStories.map((story, index) => (
+          <div className="archive-list">
+            {paginatedStories.map((story, index) => (
               <article
-                className="story-stack__item fade-up"
+                className="archive-item fade-up"
                 key={story.slug}
                 style={{ animationDelay: `${index * 110}ms` }}
               >
-                <p className="story-stack__desk">{story.section}</p>
-                <h3>
+                <div className="archive-item__meta">
+                  <p className="story-stack__desk">{story.section}</p>
+                  <p>{story.publishedAtLabel}</p>
+                </div>
+                <h3 className="archive-item__title">
                   <Link href={`/articles/${story.slug}`}>{story.title}</Link>
                 </h3>
+                <p>{story.summary}</p>
               </article>
             ))}
+            <div className="archive-pagination">
+              <span className="archive-pagination__status">
+                Page {safePage} of {totalPages}
+              </span>
+              <div className="archive-pagination__links">
+                {safePage > 1 ? (
+                  <Link className="button button--ghost button--compact" href={`/?page=${safePage - 1}#archive`}>
+                    Newer
+                  </Link>
+                ) : (
+                  <span className="button button--ghost button--compact button--disabled">Newer</span>
+                )}
+                {safePage < totalPages ? (
+                  <Link className="button button--ghost button--compact" href={`/?page=${safePage + 1}#archive`}>
+                    Older
+                  </Link>
+                ) : (
+                  <span className="button button--ghost button--compact button--disabled">Older</span>
+                )}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -165,11 +210,11 @@ export default async function HomePage() {
         </section>
 
         <section className="closing-banner fade-up" id="launch">
-          <p className="section-label">Automation ready</p>
-          <h2>Publish new stories by posting JSON from n8n, Flowise, or any scheduler.</h2>
+          <p className="section-label">Publishing systems</p>
+          <h2>New stories can be published automatically from n8n, Flowise, or any scheduler.</h2>
           <p>
-            The app now has article routes and a publish endpoint, so your workflow can generate a story
-            on a daily cadence and push it into the site without touching the frontend.
+            The site already has article routes and a publish endpoint, so the reporting pipeline can post
+            fresh stories on a schedule without touching the frontend presentation layer.
           </p>
           <code className="code-pill">POST /api/publish</code>
         </section>

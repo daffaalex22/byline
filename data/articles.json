@@ -47,5 +47,69 @@
     "imageAlt": "A city skyline under intense summer light",
     "author": "Climate Desk",
     "publishedAt": "2026-03-31T07:15:00.000Z"
+  },
+  {
+    "slug": "rates-housing-consumer-pressure",
+    "title": "Rates, housing, and wage pressure are converging into a tougher consumer story",
+    "category": "Analysis",
+    "section": "Business",
+    "summary": "The clearest read on the economy may come from the way borrowing, rents, and household resilience now intersect.",
+    "body": [
+      "A serious news surface should be able to show readers how one macro story refracts through everyday life. Housing and rates are a natural example because they touch spending, mobility, hiring, and political sentiment all at once.",
+      "That is exactly the kind of systems story an AI-assisted workflow can keep current if it continuously monitors speeches, earnings calls, market moves, and policy changes as one evolving thread.",
+      "The article becomes more useful when it is packaged plainly: what changed, what is newly important, and how the pressures connect."
+    ],
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "Apartment towers and office buildings in a downtown skyline",
+    "author": "Economics Desk",
+    "publishedAt": "2026-03-30T13:10:00.000Z"
+  },
+  {
+    "slug": "energy-grid-summer-risk",
+    "title": "Power demand is becoming one of the summer's defining infrastructure stories",
+    "category": "Explainer",
+    "section": "Climate",
+    "summary": "Grid operators are preparing for extreme conditions that could turn weather into an everyday reliability story.",
+    "body": [
+      "Infrastructure reporting often suffers when it is treated as occasional crisis coverage. A better approach is to track the underlying system before outages or emergencies force it onto the front page.",
+      "That makes energy and weather a strong editorial test for Byline because the right story is often visible in a sequence of small warnings rather than a single dramatic event.",
+      "The most convincing article framing is calm and chronological, giving readers a sense of what changed in the system and what to watch next."
+    ],
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "High-voltage power lines at sunset",
+    "author": "Infrastructure Desk",
+    "publishedAt": "2026-03-29T18:45:00.000Z"
+  },
+  {
+    "slug": "ai-policy-labs-governance",
+    "title": "The next AI policy fight may revolve less around models than around who audits deployment",
+    "category": "Policy",
+    "section": "Policy",
+    "summary": "The center of gravity is shifting from frontier releases to the institutions expected to evaluate real-world use.",
+    "body": [
+      "There is a recurring pattern in technology policy: early debates focus on breakthrough capabilities, while later debates turn to governance, oversight, and operational accountability.",
+      "For AI reporting, that shift matters because the highest-value stories may increasingly live in procurement rules, audit frameworks, and liability standards rather than product launches alone.",
+      "A publication trying to feel authoritative should surface that turn early and explain it in language that is rigorous without becoming academic."
+    ],
+    "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "Government building columns against a bright sky",
+    "author": "Policy Desk",
+    "publishedAt": "2026-03-28T09:20:00.000Z"
+  },
+  {
+    "slug": "platform-search-distribution-reset",
+    "title": "Search, social, and direct traffic are resetting the distribution math for publishers again",
+    "category": "Media",
+    "section": "Tech",
+    "summary": "Audience strategy is changing fast as referral assumptions weaken and publishers chase more durable reader relationships.",
+    "body": [
+      "Distribution is one of the hardest beats to cover well because every platform change lands with a mix of rumor, reaction, and delayed evidence.",
+      "The best version of AI-assisted media reporting would stitch those fragments into a single picture: who changed what, how quickly it matters, and which publishers are best positioned to adapt.",
+      "That is less flashy than trend-chasing, but it is closer to the kind of steady, useful reporting readers return to."
+    ],
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "A person working on a laptop with analytics visible on screen",
+    "author": "Media Desk",
+    "publishedAt": "2026-03-27T16:05:00.000Z"
   }
 ]
