@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "overnight-reporting-pipeline",
+    "title": "Inside the overnight reporting pipeline turning raw signals into readable journalism",
+    "category": "Lead story",
+    "section": "Tech",
+    "summary": "Byline treats AI as a full newsroom operating system: sourcing, ranking, drafting, cross-checking, and packaging the story before a human editor would normally even open Slack.",
+    "body": [
+      "The strongest version of an AI-native newsroom is not a text generator with a publish button. It is a system that knows how to intake signals, cluster them into a developing story, and present a clear angle before the prose phase even begins.",
+      "That distinction matters because readers are not looking for synthetic confidence. They are looking for reporting that feels selected, structured, and aware of consequence. Byline is being designed around that premise from the first screen.",
+      "The home page leads with article packages that feel closer to a modern explainer desk than a stream of prompts. Each piece is meant to say what changed, why it matters now, and how the reporting arrived at that conclusion.",
+      "For the hackathon, that means the product story is not just about automation. It is about whether automation can surface serious journalism with enough restraint that the system itself recedes and the reporting takes center stage."
+    ],
+    "image": "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "A desk covered with print newspapers and notebooks",
+    "author": "Byline Desk",
+    "publishedAt": "2026-04-02T08:00:00.000Z"
+  },
+  {
+    "slug": "supply-chain-pressure-story",
+    "title": "Shipping delays, chip controls, and election pressure are colliding into one supply-chain story",
+    "category": "Analysis",
+    "section": "World",
+    "summary": "The real story is not a single disruption. It is the way multiple pressure points now reinforce each other across trade, policy, and manufacturing.",
+    "body": [
+      "A credible autonomous newsroom should be especially good at spotting linked systems stories. Supply chains are a clear example because the key facts tend to arrive in fragments from regulators, carriers, earnings calls, and policy announcements.",
+      "When those fragments are ranked correctly, the resulting article reads less like a recap and more like a coherent explanation of what moved and why it matters to readers beyond the niche sector following every update.",
+      "That is the editorial style Byline is trying to support: serious packaging, fast synthesis, and story selection based on consequence rather than noise."
+    ],
+    "image": "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "Cargo containers stacked at a shipping port",
+    "author": "Systems Desk",
+    "publishedAt": "2026-04-01T08:30:00.000Z"
+  },
+  {
+    "slug": "climate-systems-beat",
+    "title": "Heat, grids, and urban growth create the kind of systems beat AI is unusually good at tracking",
+    "category": "Explainer",
+    "section": "Climate",
+    "summary": "Climate coverage often lives across datasets and long timelines, making it a strong candidate for an AI-assisted reporting workflow that can keep context intact.",
+    "body": [
+      "One reason climate reporting benefits from structured automation is that the story rarely lives in one event. It emerges over time through temperatures, grid strain, planning decisions, insurance shifts, and migration patterns.",
+      "An autonomous reporting stack can help maintain that continuity if it treats each article as part of a standing beat rather than a one-off generation task.",
+      "That makes the front-end presentation important too. Readers need to see a clean line from signals to article, not just a fresh block of text with no visible editorial shape."
+    ],
+    "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=80",
+    "imageAlt": "A city skyline under intense summer light",
+    "author": "Climate Desk",
+    "publishedAt": "2026-03-31T07:15:00.000Z"
+  }
+]
