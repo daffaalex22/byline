@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 
@@ -41,10 +42,29 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="article-page">
+      <header className="article-nav" aria-label="Article navigation">
+        <div className="article-nav__brand">
+          <Link className="article-nav__logo" href="/">
+            Byline
+          </Link>
+          <div className="article-nav__crumbs">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>{article.section}</span>
+          </div>
+        </div>
+        <nav className="article-nav__links">
+          <Link href="/#archive">Latest</Link>
+          <Link href="/#method">Method</Link>
+        </nav>
+      </header>
+
       <div className="article-page__hero">
-        <p className="eyebrow">{article.section}</p>
-        <h1>{article.title}</h1>
-        <p className="article-page__dek">{article.summary}</p>
+        <div className="article-page__hero-copy">
+          <p className="eyebrow">{article.section}</p>
+          <h1>{article.title}</h1>
+          <p className="article-page__dek">{article.summary}</p>
+        </div>
         <div className="article-page__meta">
           <span>{article.author}</span>
           <span>{article.publishedAtLabel}</span>
