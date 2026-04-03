@@ -46,6 +46,22 @@ const processSteps = [
 ]
 
 const archivePageSize = 4
+const emptyLeadStory = {
+  slug: '',
+  title: 'The Byline front page is ready for your first published story',
+  category: 'Top story',
+  section: 'Newsroom',
+  summary:
+    'Once the Supabase articles table is seeded, this lead package will automatically pull in the latest published story.',
+  body: [],
+  image:
+    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80',
+  imageAlt: 'A newsroom desk with papers and a laptop',
+  author: 'Byline Desk',
+  publishedAt: new Date().toISOString(),
+  publishedAtLabel: 'Awaiting first publish',
+  status: 'published' as const,
+}
 
 type HomePageProps = {
   searchParams: Promise<{
@@ -56,7 +72,7 @@ type HomePageProps = {
 export default async function HomePage({ searchParams }: HomePageProps) {
   const { page } = await searchParams
   const articles = await getAllArticles()
-  const [leadStory, ...archiveStories] = articles
+  const [leadStory = emptyLeadStory, ...archiveStories] = articles
   const currentPage = Math.max(1, Number.parseInt(page ?? '1', 10) || 1)
   const totalPages = Math.max(1, Math.ceil(archiveStories.length / archivePageSize))
   const safePage = Math.min(currentPage, totalPages)
@@ -105,9 +121,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             <h1>{leadStory.title}</h1>
             <p className="hero__summary">{leadStory.summary}</p>
             <div className="hero__actions">
-              <Link className="button button--solid" href={`/articles/${leadStory.slug}`}>
-                Read the lead story
-              </Link>
+              {leadStory.slug ? (
+                <Link className="button button--solid" href={`/articles/${leadStory.slug}`}>
+                  Read the lead story
+                </Link>
+              ) : (
+                <a className="button button--solid" href="#launch">
+                  Connect the article pipeline
+                </a>
+              )}
               <a className="button button--ghost" href="#method">
                 See how publishing works
               </a>

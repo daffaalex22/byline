@@ -9,6 +9,7 @@ export type ArticleRecord = {
   imageAlt: string
   author: string
   publishedAt: string
+  status?: 'draft' | 'published' | 'scheduled'
 }
 
 export type Article = ArticleRecord & {

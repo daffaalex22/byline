@@ -13,6 +13,7 @@ type PublishPayload = {
   imageAlt?: string
   author?: string
   publishedAt?: string
+  status?: 'draft' | 'published' | 'scheduled'
 }
 
 export async function POST(request: Request) {
@@ -70,6 +71,7 @@ export async function POST(request: Request) {
     imageAlt: payload.imageAlt,
     author: payload.author,
     publishedAt: payload.publishedAt,
+    status: payload.status ?? 'published',
   })
 
   return NextResponse.json(
