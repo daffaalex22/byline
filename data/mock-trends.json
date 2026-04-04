@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": "mock-group-001",
+      "title": "Trends for Apr 5th",
+      "trends": [
+        {
+          "id": "mock-entry-001",
+          "trend_id": "mock-trend-001",
+          "trend_group_id": "mock-group-001",
+          "ranking": 1,
+          "trend": {
+            "id": "mock-trend-001",
+            "name": "Indonesia Digital Economy Summit 2026",
+            "description": "Indonesia hosts its largest digital economy summit in Jakarta, bringing together Southeast Asian tech leaders to discuss AI regulation, digital banking expansion, and cross-border e-commerce growth. The event marks a significant milestone in Indonesia's push to become a regional tech hub.",
+            "trend_type": "content"
+          }
+        },
+        {
+          "id": "mock-entry-002",
+          "trend_id": "mock-trend-002",
+          "trend_group_id": "mock-group-001",
+          "ranking": 2,
+          "trend": {
+            "id": "mock-trend-002",
+            "name": "Global AI Safety Framework Announced by United Nations",
+            "description": "The United Nations releases a comprehensive AI safety framework establishing international guidelines for AI development, deployment, and governance. The framework includes mandatory risk assessments for frontier AI models and new transparency requirements for AI companies.",
+            "trend_type": "content"
+          }
+        }
+      ]
+    }
+  ]
+}
