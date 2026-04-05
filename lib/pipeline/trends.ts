@@ -44,7 +44,7 @@ function normalizeTrends(response: VirloResponse): NormalizedTrend[] {
   return allTrends.sort((a, b) => a.ranking - b.ranking)
 }
 
-function fetchMockTrends(): VirloResponse {
+async function fetchMockTrends(): Promise<VirloResponse> {
   return mockTrendsData as VirloResponse
 }
 
@@ -53,9 +53,42 @@ function fetchCacheTrends(): VirloResponse {
   throw new Error('Cache source is not implemented yet.')
 }
 
-function fetchLiveTrends(): VirloResponse {
-  // TODO: Call GET https://api.virlo.ai/v1/trends with VIRLO_API_KEY
-  throw new Error('Live source is not implemented yet.')
+function getRequiredEnv(name: string): string {
+  const value = process.env[name]
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${name}`)
+  }
+  return value
+}
+
+function formatDate(date: Date): string {
+  return date.toISOString().slice(0, 10)
+}
+
+async function fetchLiveTrends(): Promise<VirloResponse> {
+  const apiKey = getRequiredEnv('VIRLO_API_KEY')
+
+  const endDate = new Date()
+  const startDate = new Date()
+  startDate.setDate(startDate.getDate() - 2)
+
+  const params = new URLSearchParams({
+    start_date: formatDate(startDate),
+    end_date: formatDate(endDate),
+    limit: '50',
+  })
+
+  const response = await fetch(`https://api.virlo.ai/v1/trends?${params}`, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error(`Virlo API error: ${response.status} ${response.statusText}`)
+  }
+
+  return response.json() as Promise<VirloResponse>
 }
 
 export async function getTrends(sourceOverride?: string): Promise<TrendPayload> {
@@ -65,13 +98,13 @@ export async function getTrends(sourceOverride?: string): Promise<TrendPayload> 
 
   switch (source) {
     case 'mock':
-      raw = fetchMockTrends()
+      raw = await fetchMockTrends()
       break
     case 'cache':
-      raw = fetchCacheTrends()
+      raw = await fetchCacheTrends()
       break
     case 'live':
-      raw = fetchLiveTrends()
+      raw = await fetchLiveTrends()
       break
   }
 
