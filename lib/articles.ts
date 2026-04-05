@@ -7,8 +7,8 @@ type ArticleRow = {
   section: string
   summary: string
   body: string[]
-  image_url: string
-  image_alt: string
+  image_url?: string
+  image_alt?: string
   author: string
   published_at: string
   status: 'draft' | 'published' | 'scheduled'

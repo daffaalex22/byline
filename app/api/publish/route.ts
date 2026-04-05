@@ -44,8 +44,6 @@ export async function POST(request: Request) {
     !payload.summary ||
     !payload.section ||
     !payload.category ||
-    !payload.image ||
-    !payload.imageAlt ||
     !payload.author ||
     !payload.publishedAt ||
     !Array.isArray(payload.body) ||
@@ -54,7 +52,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          'Missing required fields. Expected title, slug, summary, section, category, image, imageAlt, author, publishedAt, and a non-empty body array.',
+          'Missing required fields. Expected title, slug, summary, section, category, author, publishedAt, and a non-empty body array.',
       },
       { status: 400 },
     )

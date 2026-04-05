@@ -71,9 +71,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </div>
 
-      <div className="article-page__image-wrap">
-        <img className="article-page__image" src={article.image} alt={article.imageAlt} />
-      </div>
+      {article.image && (
+        <div className="article-page__image-wrap">
+          <img className="article-page__image" src={article.image} alt={article.imageAlt ?? ''} />
+        </div>
+      )}
 
       <article className="article-body">
         <p className="article-body__lede">{article.summary}</p>

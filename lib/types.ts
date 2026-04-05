@@ -5,8 +5,8 @@ export type ArticleRecord = {
   section: string
   summary: string
   body: string[]
-  image: string
-  imageAlt: string
+  image?: string
+  imageAlt?: string
   author: string
   publishedAt: string
   status?: 'draft' | 'published' | 'scheduled'
