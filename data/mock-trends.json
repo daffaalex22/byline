@@ -1,34 +1,376 @@
 {
-  "data": [
-    {
-      "id": "mock-group-001",
-      "title": "Trends for Apr 5th",
-      "trends": [
+    "data": [
         {
-          "id": "mock-entry-001",
-          "trend_id": "mock-trend-001",
-          "trend_group_id": "mock-group-001",
-          "ranking": 1,
-          "trend": {
-            "id": "mock-trend-001",
-            "name": "Indonesia Digital Economy Summit 2026",
-            "description": "Indonesia hosts its largest digital economy summit in Jakarta, bringing together Southeast Asian tech leaders to discuss AI regulation, digital banking expansion, and cross-border e-commerce growth. The event marks a significant milestone in Indonesia's push to become a regional tech hub.",
-            "trend_type": "content"
-          }
+            "id": "45c55687-a094-4f95-a306-1660559d820b",
+            "title": "Trends for Apr 3rd",
+            "trends": [
+                {
+                    "id": "338a3327-06c8-4283-81d2-0d2848dd117c",
+                    "trend_id": "f3fa0986-78ec-44e0-8823-6a247041cdfd",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 1,
+                    "trend": {
+                        "id": "f3fa0986-78ec-44e0-8823-6a247041cdfd",
+                        "name": "Ye & Travis Scott Release 'FATHER' Music Video",
+                        "description": "Kanye West and Travis Scott released the official music video for their collaboration 'FATHER,' which was previewed at 'BULLY' listening parties. The visual has generated significant buzz with fans analyzing the creative direction and production quality.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "8e26d8be-494d-41b5-b0c1-f04cd7d73876",
+                    "trend_id": "005910b3-4da9-4638-a1b8-56b785823272",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 2,
+                    "trend": {
+                        "id": "005910b3-4da9-4638-a1b8-56b785823272",
+                        "name": "Artemis II Moon Mission Launch",
+                        "description": "NASA's Artemis II mission successfully launched on April 1, 2026, sending four astronauts on a historic journey around the Moon for the first time in 54 years. This is a massive cultural moment—humanity returning to deep space exploration after decades. Creators are making reaction videos, educational breakdowns, and 'let's talk about space exploration' commentary as this unprecedented achievement trends across all platforms.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "e9d347d1-bc85-4def-a7b1-c25490801ec0",
+                    "trend_id": "c5705c0a-293c-450c-97f9-c1101b6107ac",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 3,
+                    "trend": {
+                        "id": "c5705c0a-293c-450c-97f9-c1101b6107ac",
+                        "name": "Bad Bunny Reaches 30 Billion-Stream Songs on Spotify",
+                        "description": "Bad Bunny has achieved a massive milestone with 30 songs surpassing 1 billion streams each on Spotify, with 'EoO' recently crossing the threshold. He's one song away from an even bigger record. This demonstrates his unprecedented streaming dominance and is sparking reactions from fans celebrating his success.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "af6ce11d-6ba4-4b84-b06a-a4571c2faf1b",
+                    "trend_id": "3d101565-8961-403e-b120-77c661266ad8",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 4,
+                    "trend": {
+                        "id": "3d101565-8961-403e-b120-77c661266ad8",
+                        "name": "Pooh Shiesty Federal Charges - Kidnapping & Armed Robbery",
+                        "description": "Federal prosecutors charged rapper Pooh Shiesty along with eight others in connection with the alleged kidnapping and armed robbery of Gucci Mane. The charges have taken on new meaning given Shiesty's past lyrics bragging about robbery, creating a viral moment where his music is being re-examined in light of the legal allegations.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "4024d681-b8fe-4b18-8ada-d6f5fbc315f6",
+                    "trend_id": "a0282e6a-bde1-43e8-87c2-be357b1b5e1f",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 5,
+                    "trend": {
+                        "id": "a0282e6a-bde1-43e8-87c2-be357b1b5e1f",
+                        "name": "Blake Lively vs Justin Baldoni Lawsuit - Judge Dismisses Most Claims",
+                        "description": "A New York judge threw out most of Blake Lively's accusations against Justin Baldoni, allowing only three of her several claims to proceed. This major celebrity legal drama is generating significant commentary and reaction content as fans debate the ruling and what it means for the case.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "2530e522-5399-417d-9b8c-b8fd865fb837",
+                    "trend_id": "81f82787-1221-45fa-a2e0-acfc434c0f44",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 6,
+                    "trend": {
+                        "id": "81f82787-1221-45fa-a2e0-acfc434c0f44",
+                        "name": "Pam Bondi Fired as Attorney General",
+                        "description": "President Trump dismissed Attorney General Pam Bondi, ending her tenure as the nation's top law enforcement official. The sudden firing sparked immediate political commentary and debate, with this major government shake-up generating reaction videos and discussion about the implications.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "a3325bd4-0e83-4c66-b42d-ce7c1078d2a9",
+                    "trend_id": "53b14594-ad59-40ee-ad0c-319ecc692f8f",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 7,
+                    "trend": {
+                        "id": "53b14594-ad59-40ee-ad0c-319ecc692f8f",
+                        "name": "LeBron James Game-Time Decision Status",
+                        "description": "LeBron James continues to be a game-time decision every night, with the NBA star's availability becoming a recurring storyline. This ongoing situation is generating commentary about aging athletes, durability, and the impact on team performance, sparking reaction and analysis videos.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "7cd096ed-3211-41f6-ad5f-bfc926c1442c",
+                    "trend_id": "f8115ef1-52d1-454f-bdc0-a641060d6dcb",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 8,
+                    "trend": {
+                        "id": "f8115ef1-52d1-454f-bdc0-a641060d6dcb",
+                        "name": "Jonah Hill Open to Superbad Sequel - With One Condition",
+                        "description": "Actor Jonah Hill revealed he's open to making a Superbad sequel, but only under one very specific condition: waiting until he's 80 years old. The humorous take on a potential revival of the beloved comedy is generating nostalgic reactions and commentary from fans of the original film.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "2888fcc3-6f22-4bdc-9ac9-70fec150b82f",
+                    "trend_id": "27e69791-1e1d-4e6d-b7e5-103ad1a05b94",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 9,
+                    "trend": {
+                        "id": "27e69791-1e1d-4e6d-b7e5-103ad1a05b94",
+                        "name": "Tory Lanez Album Release from Prison",
+                        "description": "Incarcerated rapper Tory Lanez dropped his final album 'Slutty Bass' with an impressive rollout executed from prison. The album release is generating viral commentary about his situation and the creative output despite his incarceration, sparking reaction and discussion videos.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "89848128-db0c-4624-a7d5-cb55154b8a4d",
+                    "trend_id": "48f94e90-2858-4456-a780-93d49b0cfc3e",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 10,
+                    "trend": {
+                        "id": "48f94e90-2858-4456-a780-93d49b0cfc3e",
+                        "name": "T.I. 'Let 'Em Know' Hits #1 - Longest Chart Run Since 2008",
+                        "description": "T.I.'s hit single 'Let 'Em Know' became his longest-running #1 on the Billboard Mainstream R&B/Hip Hop Charts since 'Whatever You Like' in 2008. The comeback moment is generating celebration and nostalgia content as fans react to the veteran rapper's chart success.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "15f937b6-4ede-442c-b81a-5420b6bccdd6",
+                    "trend_id": "8c63beb2-3e57-40f0-8253-153f9d7b5c22",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 11,
+                    "trend": {
+                        "id": "8c63beb2-3e57-40f0-8253-153f9d7b5c22",
+                        "name": "Jay-Z Takes Shots at Cam'ron on 'Otis'",
+                        "description": "Cam'ron revealed that Jay-Z took shots at him on the track 'Otis,' reigniting discussion about hip-hop beef and lyrical warfare. The revelation is sparking reaction videos and commentary about the diss, with fans analyzing the bars and debating the implications.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "f5feb2bc-544f-4513-9e56-69f30508e220",
+                    "trend_id": "d1227c1d-b1f0-48ca-aa4d-908fe50fee87",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 12,
+                    "trend": {
+                        "id": "d1227c1d-b1f0-48ca-aa4d-908fe50fee87",
+                        "name": "Bam Adebayo 83-Point Night Changes Perception of Offensive Game",
+                        "description": "NBA player Bam Adebayo believes his explosive 83-point performance has changed how people view his offensive capabilities. The career-high game is generating highlight reels and commentary about his evolution as a scorer, sparking reaction videos from basketball fans.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "0dae8f57-a511-4b95-973c-f241a85d4b22",
+                    "trend_id": "fea7df22-afcd-4dd8-a77c-f92935e94253",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 13,
+                    "trend": {
+                        "id": "fea7df22-afcd-4dd8-a77c-f92935e94253",
+                        "name": "IShowSpeed WrestleMania Moment",
+                        "description": "Content creator IShowSpeed had a viral moment at WrestleMania, with his reaction and participation generating significant engagement. The crossover between gaming/streaming culture and professional wrestling is sparking commentary and reaction content from fans.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "c9033c05-93a7-472a-8583-9ff3149bae27",
+                    "trend_id": "aab80b13-a1c7-4a46-b72d-fa72e55b4885",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 14,
+                    "trend": {
+                        "id": "aab80b13-a1c7-4a46-b72d-fa72e55b4885",
+                        "name": "AI Image Detection - How AI Exposes Itself",
+                        "description": "A viral trend shows how AI-generated images expose themselves through small details and imperfections that humans miss at first glance. The content is sparking commentary about AI detection, digital literacy, and the uncanny valley effect, generating reaction and educational videos.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "236d8c88-28e1-47b2-a256-774fb3150b32",
+                    "trend_id": "dc1ff9f7-eecc-4682-94a5-ed555c5bea0f",
+                    "trend_group_id": "45c55687-a094-4f95-a306-1660559d820b",
+                    "ranking": 15,
+                    "trend": {
+                        "id": "dc1ff9f7-eecc-4682-94a5-ed555c5bea0f",
+                        "name": "Messi, Ronaldo, Mbappé, Vini Jr. LEGO World Cup Collab",
+                        "description": "LEGO released a World Cup campaign featuring Messi, Ronaldo, Mbappé, and Vini Jr. as collectible figures, putting football's biggest rivals in the same frame. The collaboration is generating commentary about the marketing genius and nostalgia for these iconic players, sparking reaction and discussion videos.",
+                        "trend_type": "content"
+                    }
+                }
+            ]
         },
         {
-          "id": "mock-entry-002",
-          "trend_id": "mock-trend-002",
-          "trend_group_id": "mock-group-001",
-          "ranking": 2,
-          "trend": {
-            "id": "mock-trend-002",
-            "name": "Global AI Safety Framework Announced by United Nations",
-            "description": "The United Nations releases a comprehensive AI safety framework establishing international guidelines for AI development, deployment, and governance. The framework includes mandatory risk assessments for frontier AI models and new transparency requirements for AI companies.",
-            "trend_type": "content"
-          }
+            "id": "0e032fcb-97db-411e-838e-244452ae81de",
+            "title": "Trends for Apr 2nd",
+            "trends": [
+                {
+                    "id": "f1f0492c-162d-41b1-b60b-0cb8562b9898",
+                    "trend_id": "005910b3-4da9-4638-a1b8-56b785823272",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 1,
+                    "trend": {
+                        "id": "005910b3-4da9-4638-a1b8-56b785823272",
+                        "name": "Artemis II Moon Mission Launch",
+                        "description": "NASA's Artemis II mission successfully launched on April 1, 2026, sending four astronauts on a historic journey around the Moon for the first time in 54 years. This is a massive cultural moment—humanity returning to deep space exploration after decades. Creators are making reaction videos, educational breakdowns, and 'let's talk about space exploration' commentary as this unprecedented achievement trends across all platforms.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "c4dcd9ac-336b-4548-8efb-6fe0faf52916",
+                    "trend_id": "de0f3b15-e904-48d1-be6f-6f4a36300168",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 2,
+                    "trend": {
+                        "id": "de0f3b15-e904-48d1-be6f-6f4a36300168",
+                        "name": "Ye Drops 'Bully' Album Tracklist",
+                        "description": "Kanye West officially released the tracklist for his new album 'Bully,' announcing \"BULLY ON THE WAY NO AI\" via Twitter/X. Music fans are reacting to the announcement and speculating about features and production, making this a hot topic for music commentary and reaction content.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "dfba7f39-ad85-429d-abb0-e66211c9cb69",
+                    "trend_id": "3731d792-cd46-40bc-b1d4-651e0ad2a416",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 3,
+                    "trend": {
+                        "id": "3731d792-cd46-40bc-b1d4-651e0ad2a416",
+                        "name": "Zendaya and Robert Pattinson Film 'The Drama' Release",
+                        "description": "Zendaya and Robert Pattinson star in Kristoffer Borgli's 'The Drama,' hitting theaters April 3. The film follows a couple preparing for their wedding whose relationship faces unexpected challenges, sparking interest in celebrity pairings and film commentary from audiences.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "8aa7b2c3-f200-48b2-ad92-498453515fdf",
+                    "trend_id": "14febf84-6a5f-4b0d-b55d-c7477bf94cb3",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 4,
+                    "trend": {
+                        "id": "14febf84-6a5f-4b0d-b55d-c7477bf94cb3",
+                        "name": "FIFA World Cup 2026 Qualification Drama",
+                        "description": "Multiple countries are securing their spots in the 2026 FIFA World Cup with dramatic playoff moments. Bosnia and Herzegovina, Iraq, and Czechia have all qualified with intense penalty shootouts and emotional celebrations. The World Cup qualification chaos is generating massive engagement with fans creating celebration videos, reaction compilations, and 'let's talk about these upsets' commentary.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "3a513b34-b86d-4f71-849c-cfd835bf71ac",
+                    "trend_id": "3c5f089b-9bb3-4556-9d87-5c4254100ed5",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 5,
+                    "trend": {
+                        "id": "3c5f089b-9bb3-4556-9d87-5c4254100ed5",
+                        "name": "April Fools' Day 2026 Pranks & Memes",
+                        "description": "April 1st brought a wave of creative pranks, jokes, and meme content across social media. From the KitKat chocolate bar heist prank to personal April Fools' pranks, creators are making 'prank reaction' videos and sharing hilarious April Fools' moments. This is peak Gen Z humor content with duets, stitches, and commentary on the best and worst pranks.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "912d385d-8f47-45af-be96-6d1a4175ae14",
+                    "trend_id": "c378887b-d851-4b50-b56f-022054eaada2",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 6,
+                    "trend": {
+                        "id": "c378887b-d851-4b50-b56f-022054eaada2",
+                        "name": "Duke Advances to Elite Eight in March Madness",
+                        "description": "Duke defeated St. John's to advance to the Elite Eight round of the NCAA March Madness tournament. The victory has energized Duke fans and sparked discussions about the team's tournament run and championship potential.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "6effc395-67ec-40ca-b7b3-f8b997f9392d",
+                    "trend_id": "1c2447cd-78fc-4aea-867f-850120660930",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 7,
+                    "trend": {
+                        "id": "1c2447cd-78fc-4aea-867f-850120660930",
+                        "name": "Texas Judge Nathan Milliron IT Worker Meltdown Goes Viral",
+                        "description": "A Texas judge was caught on camera losing his temper with an IT worker who came to fix a courtroom computer glitch. The viral video shows the judge's unprofessional outburst, sparking massive commentary about workplace behavior and authority figures. This has become a major talking point for reaction videos and commentary content.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "a376784e-971f-481b-ba79-9b8741ded26a",
+                    "trend_id": "409c54ac-ecba-43cf-8deb-1a8049edb230",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 8,
+                    "trend": {
+                        "id": "409c54ac-ecba-43cf-8deb-1a8049edb230",
+                        "name": "Batman 2 Production Officially Underway",
+                        "description": "Robert Pattinson confirmed he's starting Batman prep next week, with filming scheduled for May 29 in London. The Batman 2 sequel is officially moving forward with major production updates. This is driving entertainment commentary videos, speculation about the plot, and 'let's talk about the Batman universe' content from film enthusiasts.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "cac4750f-6879-4f53-a6b8-cc3e3a198210",
+                    "trend_id": "844eea95-67d1-471f-b2b0-93af64817fb8",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 9,
+                    "trend": {
+                        "id": "844eea95-67d1-471f-b2b0-93af64817fb8",
+                        "name": "Giannis & Alex Antetokounmpo Make NBA History",
+                        "description": "Giannis and his brother Alex made history as the first-ever sibling pair to play together in the NBA, with Alex scoring in his debut. This is a heartwarming sports moment generating reaction videos, family commentary, and 'let's celebrate this historic moment' content from basketball fans.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "08192af9-3b2d-42c8-bf10-988a3113c7da",
+                    "trend_id": "17bca56b-1f7a-4612-a914-a8e978bb2c07",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 10,
+                    "trend": {
+                        "id": "17bca56b-1f7a-4612-a914-a8e978bb2c07",
+                        "name": "KitKat Truck Carrying 413,793 Units Stolen in Europe",
+                        "description": "A truck transporting 413,793 units of KitKat's new chocolate range was stolen during transit in Europe. The unusual heist has gone viral with audiences reacting to the massive chocolate theft and joking about the incident on social media.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "7428fb99-3c35-421d-aefd-c41aa7590acb",
+                    "trend_id": "159b8b88-4bf0-45e1-a124-96b4bcea4f54",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 11,
+                    "trend": {
+                        "id": "159b8b88-4bf0-45e1-a124-96b4bcea4f54",
+                        "name": "Lizzo Opens Up About Virginity & Grammy Win",
+                        "description": "During an episode of Friends Keep Secrets podcast, Lizzo revealed she held off on losing her virginity until after she won a Grammy, sharing personal life details. This is generating reaction videos and commentary about celebrity personal lives, relationships, and life choices—classic Gen Z discussion content.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "78b3032c-6a6d-4651-95f1-1deca058bc51",
+                    "trend_id": "88551e53-1dd5-4741-975f-aa16a88398ed",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 12,
+                    "trend": {
+                        "id": "88551e53-1dd5-4741-975f-aa16a88398ed",
+                        "name": "Paul McCartney Banned from His Own Subreddit",
+                        "description": "Sir Paul McCartney was reportedly 'banned' from his own subreddit after sharing photos, sparking hilarious commentary about internet culture and moderator power dynamics. This absurd internet moment is generating reaction videos and 'let's talk about this ridiculous situation' commentary from Gen Z creators.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "b504392f-53ac-4795-9d4d-1279ae7a6e9e",
+                    "trend_id": "cd28cd08-329d-42e0-951d-449ab5091266",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 13,
+                    "trend": {
+                        "id": "cd28cd08-329d-42e0-951d-449ab5091266",
+                        "name": "Trump's Iran Military Update Address",
+                        "description": "President Trump delivered an address on April 1 providing an update on the Iran military situation, suggesting the US could wind down its campaign within 2-3 weeks. Major networks interrupted programming to air the address. This is significant news generating political commentary and reaction videos from Gen Z audiences discussing geopolitical implications.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "e613eaac-10af-4270-a987-b693ad0d1d6d",
+                    "trend_id": "0f2538b4-358c-46dc-9502-68232da512bb",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 14,
+                    "trend": {
+                        "id": "0f2538b4-358c-46dc-9502-68232da512bb",
+                        "name": "Yeat Album 'ADL' Projected #4 Debut",
+                        "description": "Rapper Yeat is aiming for a number 4 debut on the Billboard charts with his album 'ADL,' projected to sell 80k units in its first week. This marks his fifth top 5 debut. Music fans are creating reaction videos and commentary on Yeat's chart performance and album quality.",
+                        "trend_type": "content"
+                    }
+                },
+                {
+                    "id": "6cbdedf6-4ea8-42bb-8638-b92e4d1abf54",
+                    "trend_id": "1abd83ac-6672-446b-a5c9-9a562c8de195",
+                    "trend_group_id": "0e032fcb-97db-411e-838e-244452ae81de",
+                    "ranking": 15,
+                    "trend": {
+                        "id": "1abd83ac-6672-446b-a5c9-9a562c8de195",
+                        "name": "Apple Celebrates 50 Years Anniversary",
+                        "description": "Apple is celebrating its 50-year anniversary with 'Thinking Different' campaigns across cities worldwide from London to Tokyo. This major tech milestone is generating nostalgia content, commentary on Apple's cultural impact, and 'let's talk about tech history' videos from Gen Z creators interested in technology and innovation.",
+                        "trend_type": "content"
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

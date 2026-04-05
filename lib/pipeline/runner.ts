@@ -1,6 +1,40 @@
 import type { PipelineResult, TrendResult } from '@/lib/pipeline/types'
 import { getTrends } from '@/lib/pipeline/trends'
-import { sendToFlowise } from '@/lib/pipeline/flowise'
+import { sendToFlowise, FlowiseError } from '@/lib/pipeline/flowise'
+
+function isRetryableError(error: unknown): boolean {
+  if (error instanceof FlowiseError) {
+    const retryableStatusCodes = [408, 429, 500, 502, 503, 504]
+    return retryableStatusCodes.includes(error.statusCode)
+  }
+  return false
+}
+
+async function withExponentialBackoff<T>(
+  fn: () => Promise<T>,
+  maxRetries = 3,
+  baseDelayMs = 1000,
+): Promise<T> {
+  let lastError: Error | undefined
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn()
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+
+      const shouldRetry = attempt < maxRetries && isRetryableError(error)
+      if (shouldRetry) {
+        const delay = baseDelayMs * Math.pow(2, attempt)
+        await new Promise((resolve) => setTimeout(resolve, delay))
+      } else if (!isRetryableError(error)) {
+        throw error
+      }
+    }
+  }
+
+  throw lastError
+}
 
 export async function runPipeline(options?: {
   source?: string
@@ -14,10 +48,10 @@ export async function runPipeline(options?: {
     const trendStart = Date.now()
 
     try {
-      const flowiseResponse = await sendToFlowise(
-        trend,
-        payload.runId,
-        payload.source,
+      const flowiseResponse = await withExponentialBackoff(
+        () => sendToFlowise(trend, payload.runId, payload.source),
+        3,
+        1000,
       )
 
       results.push({

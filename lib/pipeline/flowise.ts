@@ -1,5 +1,15 @@
 import type { NormalizedTrend, FlowiseResponse } from '@/lib/pipeline/types'
 
+export class FlowiseError extends Error {
+  constructor(
+    message: string,
+    public statusCode: number,
+  ) {
+    super(message)
+    this.name = 'FlowiseError'
+  }
+}
+
 function getRequiredEnv(name: string): string {
   const value = process.env[name]
 
@@ -40,15 +50,15 @@ export async function sendToFlowise(
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      question: `Generate a report for the following trend: ${trend.title}`,
-      overrideConfig: { vars },
+      question: '',
+      overrideConfig: { vars: vars },
     }),
     signal: AbortSignal.timeout(120_000),
   })
 
   if (!response.ok) {
     const errorText = await response.text()
-    throw new Error(`Flowise error ${response.status}: ${errorText}`)
+    throw new FlowiseError(`Flowise error ${response.status}: ${errorText}`, response.status)
   }
 
   return response.json() as Promise<FlowiseResponse>
