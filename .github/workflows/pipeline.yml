@@ -1,0 +1,178 @@
+name: Pipeline - Publish Articles
+
+on:
+  schedule:
+    # Every 2 days at 8:00 AM UTC
+    - cron: '0 8 */2 * *'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Trend source (mock, cache, live)'
+        required: false
+        default: 'live'
+        type: choice
+        options:
+          - live
+          - mock
+          - cache
+      limit:
+        description: 'Max trends to process (0 = all)'
+        required: false
+        default: '10'
+        type: number
+
+jobs:
+  dispatch:
+    name: '📰 Fetch Trends'
+    runs-on: ubuntu-latest
+    outputs:
+      trends: ${{ steps.fetch.outputs.trends }}
+      run_id: ${{ steps.fetch.outputs.run_id }}
+      source: ${{ steps.fetch.outputs.source }}
+      count: ${{ steps.fetch.outputs.count }}
+    steps:
+      - name: Fetch trends from dispatch endpoint
+        id: fetch
+        env:
+          APP_URL: ${{ vars.APP_URL }}
+          PIPELINE_SECRET: ${{ secrets.PIPELINE_SECRET }}
+        run: |
+          SOURCE="${{ inputs.source || 'live' }}"
+          LIMIT="${{ inputs.limit || '10' }}"
+
+          BODY=$(jq -n \
+            --arg secret "$PIPELINE_SECRET" \
+            --arg source "$SOURCE" \
+            --argjson limit "$LIMIT" \
+            '{secret: $secret, source: $source, limit: $limit}')
+
+          RESPONSE=$(curl -sf -X POST "${APP_URL}/api/internal/pipeline/dispatch" \
+            -H "Content-Type: application/json" \
+            -d "$BODY" \
+            --max-time 30)
+
+          if [ $? -ne 0 ]; then
+            echo "::error::Failed to fetch trends from dispatch endpoint"
+            exit 1
+          fi
+
+          RUN_ID=$(echo "$RESPONSE" | jq -r '.runId')
+          SOURCE_OUT=$(echo "$RESPONSE" | jq -r '.source')
+          COUNT=$(echo "$RESPONSE" | jq '.trendCount')
+          TRENDS=$(echo "$RESPONSE" | jq -c '.trends')
+
+          echo "run_id=${RUN_ID}" >> "$GITHUB_OUTPUT"
+          echo "source=${SOURCE_OUT}" >> "$GITHUB_OUTPUT"
+          echo "count=${COUNT}" >> "$GITHUB_OUTPUT"
+
+          # Use heredoc for potentially large JSON payload
+          {
+            echo "trends<<TRENDS_EOF"
+            echo "${TRENDS}"
+            echo "TRENDS_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          echo "### 📰 Pipeline Dispatch" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|-------|-------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Run ID | \`${RUN_ID}\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Source | ${SOURCE_OUT} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Trends | ${COUNT} |" >> "$GITHUB_STEP_SUMMARY"
+
+  process:
+    name: '✍️ ${{ matrix.trend.title }}'
+    needs: dispatch
+    if: needs.dispatch.outputs.count != '0'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        trend: ${{ fromJson(needs.dispatch.outputs.trends) }}
+      max-parallel: 2
+      fail-fast: false
+    steps:
+      - name: Send to Flowise
+        id: flowise
+        env:
+          FLOWISE_API_URL: ${{ secrets.FLOWISE_API_URL }}
+          RUN_ID: ${{ needs.dispatch.outputs.run_id }}
+          SOURCE: ${{ needs.dispatch.outputs.source }}
+          TREND_ID: ${{ matrix.trend.id }}
+          TREND_TITLE: ${{ matrix.trend.title }}
+          TREND_SUMMARY: ${{ matrix.trend.summary }}
+          TREND_TYPE: ${{ matrix.trend.type }}
+          TREND_RANKING: ${{ matrix.trend.ranking }}
+          GROUP_ID: ${{ matrix.trend.groupId }}
+          GROUP_TITLE: ${{ matrix.trend.groupTitle }}
+        run: |
+          echo "🔄 Processing: ${TREND_TITLE}"
+
+          PAYLOAD=$(jq -n \
+            --arg run_id "$RUN_ID" \
+            --arg source "$SOURCE" \
+            --arg trend_id "$TREND_ID" \
+            --arg trend_title "$TREND_TITLE" \
+            --arg trend_summary "$TREND_SUMMARY" \
+            --arg trend_type "$TREND_TYPE" \
+            --arg trend_ranking "$TREND_RANKING" \
+            --arg group_id "$GROUP_ID" \
+            --arg group_title "$GROUP_TITLE" \
+            '{
+              question: "",
+              overrideConfig: {
+                vars: {
+                  run_id: $run_id,
+                  source: $source,
+                  trend_id: $trend_id,
+                  trend_title: $trend_title,
+                  trend_summary: $trend_summary,
+                  trend_type: $trend_type,
+                  trend_ranking: $trend_ranking,
+                  group_id: $group_id,
+                  group_title: $group_title
+                }
+              }
+            }')
+
+          # Retry with exponential backoff (matches runner.ts logic)
+          MAX_RETRIES=3
+          ATTEMPT=0
+
+          while [ $ATTEMPT -le $MAX_RETRIES ]; do
+            HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" \
+              -X POST "$FLOWISE_API_URL" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD" \
+              --max-time 300)
+
+            if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+              echo "✅ Success (HTTP ${HTTP_CODE})"
+              echo "status=success" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            ATTEMPT=$((ATTEMPT + 1))
+
+            if [ $ATTEMPT -le $MAX_RETRIES ]; then
+              DELAY=$((2 ** ATTEMPT))
+              echo "⚠️ Attempt ${ATTEMPT} failed (HTTP ${HTTP_CODE}). Retrying in ${DELAY}s..."
+              sleep $DELAY
+            fi
+          done
+
+          echo "❌ Failed after ${MAX_RETRIES} retries (last HTTP ${HTTP_CODE})"
+          cat /tmp/response.json 2>/dev/null || echo "(no response body)"
+          echo "status=error" >> "$GITHUB_OUTPUT"
+          exit 1
+
+      - name: Job Summary
+        if: always()
+        env:
+          TREND_TITLE: ${{ matrix.trend.title }}
+          TREND_ID: ${{ matrix.trend.id }}
+          STATUS: ${{ steps.flowise.outputs.status || 'error' }}
+        run: |
+          if [ "$STATUS" = "success" ]; then ICON="✅"; else ICON="❌"; fi
+          echo "### ${ICON} ${TREND_TITLE}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Trend ID:** \`${TREND_ID}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Status:** ${STATUS}" >> "$GITHUB_STEP_SUMMARY"
