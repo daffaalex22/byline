@@ -10,6 +10,7 @@ export type ArticleRecord = {
   author: string
   publishedAt: string
   status?: 'draft' | 'published' | 'scheduled'
+  trendId?: string
 }
 
 export type Article = ArticleRecord & {

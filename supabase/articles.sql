@@ -12,6 +12,7 @@ create table if not exists public.articles (
   image_alt text not null,
   author text not null,
   status text not null default 'published' check (status in ('draft', 'published', 'scheduled')),
+  trend_id uuid,
   published_at timestamptz not null,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()

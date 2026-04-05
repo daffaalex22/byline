@@ -12,6 +12,7 @@ type ArticleRow = {
   author: string
   published_at: string
   status: 'draft' | 'published' | 'scheduled'
+  trend_id?: string
 }
 
 function getRequiredEnv(name: string) {
@@ -71,6 +72,7 @@ function mapRowToArticleRecord(row: ArticleRow): ArticleRecord {
     author: row.author,
     publishedAt: row.published_at,
     status: row.status,
+    trendId: row.trend_id,
   }
 }
 
@@ -87,12 +89,13 @@ function mapArticleRecordToRow(article: ArticleRecord) {
     author: article.author,
     published_at: article.publishedAt,
     status: article.status ?? 'published',
+    trend_id: article.trendId,
   }
 }
 
 export async function getAllArticles() {
   const response = await fetch(
-    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,body,image_url,image_alt,author,published_at,status&status=eq.published&order=published_at.desc`,
+    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,body,image_url,image_alt,author,published_at,status,trend_id&status=eq.published&order=published_at.desc`,
     {
       headers: getPublicHeaders(),
       next: { revalidate: 60 },
@@ -109,7 +112,7 @@ export async function getAllArticles() {
 
 export async function getArticleBySlug(slug: string) {
   const response = await fetch(
-    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,body,image_url,image_alt,author,published_at,status&slug=eq.${encodeURIComponent(slug)}&status=eq.published`,
+    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,body,image_url,image_alt,author,published_at,status,trend_id&slug=eq.${encodeURIComponent(slug)}&status=eq.published`,
     {
       headers: {
         ...getPublicHeaders(),
