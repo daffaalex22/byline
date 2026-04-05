@@ -61,12 +61,25 @@ function getRequiredEnv(name: string): string {
   return value
 }
 
+function getOptionalEnv(name: string): string | undefined {
+  return process.env[name]
+}
+
 function formatDate(date: Date): string {
   return date.toISOString().slice(0, 10)
 }
 
+async function fetchWithKey(url: string, apiKey: string): Promise<Response> {
+  return fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+    },
+  })
+}
+
 async function fetchLiveTrends(): Promise<VirloResponse> {
-  const apiKey = getRequiredEnv('VIRLO_API_KEY')
+  const primaryKey = getRequiredEnv('VIRLO_API_KEY')
+  const backupKey = getOptionalEnv('VIRLO_API_KEY_BACKUP')
 
   const endDate = new Date()
   const startDate = new Date()
@@ -78,11 +91,19 @@ async function fetchLiveTrends(): Promise<VirloResponse> {
     limit: '50',
   })
 
-  const response = await fetch(`https://api.virlo.ai/v1/trends?${params}`, {
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-    },
-  })
+  const url = `https://api.virlo.ai/v1/trends?${params}`
+
+  const response = await fetchWithKey(url, primaryKey)
+
+  if (!response.ok && backupKey) {
+    const primaryError = `Primary: ${response.status} ${response.statusText}`
+    const backupResponse = await fetchWithKey(url, backupKey)
+    if (!backupResponse.ok) {
+      throw new Error(`Virlo API errors - ${primaryError}; Backup: ${backupResponse.status} ${backupResponse.statusText}`)
+    }
+    console.warn(`Virlo API primary key failed (${primaryError}), using backup key`)
+    return backupResponse.json() as Promise<VirloResponse>
+  }
 
   if (!response.ok) {
     throw new Error(`Virlo API error: ${response.status} ${response.statusText}`)
