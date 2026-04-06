@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        trend: ${{ fromJson(needs.dispatch.outputs.trends) }}
+        trend: ${{ fromJson(needs.dispatch.outputs.trends) | unique_by(.id) }}
       max-parallel: 2
       fail-fast: false
     steps:
@@ -135,7 +135,7 @@ jobs:
             }')
 
           # Retry with exponential backoff (matches runner.ts logic)
-          MAX_RETRIES=3
+          MAX_RETRIES=5
           ATTEMPT=0
 
           while [ $ATTEMPT -le $MAX_RETRIES ]; do
@@ -154,7 +154,7 @@ jobs:
             ATTEMPT=$((ATTEMPT + 1))
 
             if [ $ATTEMPT -le $MAX_RETRIES ]; then
-              DELAY=$((2 ** ATTEMPT))
+              DELAY=$((4 * 2 ** ATTEMPT))
               echo "⚠️ Attempt ${ATTEMPT} failed (HTTP ${HTTP_CODE}). Retrying in ${DELAY}s..."
               sleep $DELAY
             fi
