@@ -12,6 +12,7 @@ const sections = [
 
 export default function ScrollSpy() {
   const [activeId, setActiveId] = useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const observers = new Map()
@@ -48,17 +49,31 @@ export default function ScrollSpy() {
   }, [])
 
   return (
-    <nav className="top-nav" aria-label="Primary">
-      {sections.map(({ id, label }) => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={activeId === id ? 'active' : ''}
-          aria-current={activeId === id ? 'true' : undefined}
-        >
-          {label}
-        </a>
-      ))}
-    </nav>
+    <div className="nav-container">
+      <button 
+        className={`hamburger ${menuOpen ? 'open' : ''}`} 
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav className={`top-nav ${menuOpen ? 'open' : ''}`} aria-label="Primary">
+        {sections.map(({ id, label }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={activeId === id ? 'active' : ''}
+            aria-current={activeId === id ? 'true' : undefined}
+            onClick={() => setMenuOpen(false)}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+    </div>
   )
 }
