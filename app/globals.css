@@ -343,8 +343,23 @@ p {
 
 .story-block,
 .archive-item {
-  padding-top: 1rem;
+  display: block;
+  padding: 1rem 1.2rem;
   border-top: 1px solid var(--line);
+  margin-inline: -1.2rem;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  cursor: pointer;
+}
+
+.story-block:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(21, 19, 18, 0.08);
+}
+
+.archive-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .story-block p:last-child,
