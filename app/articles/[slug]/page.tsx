@@ -61,11 +61,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <Link className="article-nav__logo" href="/">
             Byline
           </Link>
-          <div className="article-nav__crumbs">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>{article.section}</span>
-          </div>
         </div>
         <nav className="article-nav__links">
           <Link href="/#archive">Latest</Link>
@@ -75,7 +70,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <div className="article-page__hero">
         <div className="article-page__hero-copy">
-          <p className="eyebrow">{article.section}</p>
           <h1>{article.title}</h1>
           <p className="article-page__dek">{article.summary}</p>
           <div className="article-page__actions">
