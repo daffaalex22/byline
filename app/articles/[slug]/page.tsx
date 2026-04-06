@@ -6,6 +6,7 @@ import ReadingProgress from '@/app/components/ReadingProgress'
 import BackToTop from '@/app/components/BackToTop'
 import StickyNav from '@/app/components/StickyNav'
 import RelatedArticles from '@/app/components/RelatedArticles'
+import ShareButtons from '@/app/components/ShareButtons'
 
 type ArticlePageProps = {
   params: Promise<{
@@ -76,6 +77,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p className="eyebrow">{article.section}</p>
           <h1>{article.title}</h1>
           <p className="article-page__dek">{article.summary}</p>
+          <div className="article-page__actions">
+            <ShareButtons article={article} />
+          </div>
         </div>
         <div className="article-page__meta">
           <span>{article.author}</span>
