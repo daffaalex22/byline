@@ -141,9 +141,9 @@ export async function getArticleBySlug(slug: string) {
   return formatArticle(mapRowToArticleRecord(article))
 }
 
-export async function getRelatedArticles(currentSlug: string, section: string, limit = 3) {
+export async function getRelatedArticles(currentSlug: string, limit = 3) {
   const response = await fetch(
-    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,image_url,image_alt,author,published_at,status,trend_id&status=eq.published&section=eq.${encodeURIComponent(section)}&slug=not.eq.${encodeURIComponent(currentSlug)}&order=published_at.desc&limit=${limit}`,
+    `${getSupabaseUrl()}/articles?select=slug,title,category,section,summary,image_url,image_alt,author,published_at,status,trend_id&status=eq.published&slug=not.eq.${encodeURIComponent(currentSlug)}&order=published_at.desc&limit=${limit}`,
     {
       headers: getPublicHeaders(),
       next: { revalidate: 60 },

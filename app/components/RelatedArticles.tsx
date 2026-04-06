@@ -24,7 +24,6 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
               </div>
             )}
             <div className="related-article__content">
-              <span className="related-article__section">{article.section}</span>
               <h3 className="related-article__title">{article.title}</h3>
               <span className="related-article__author">{article.author}</span>
             </div>
