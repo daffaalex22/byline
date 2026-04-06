@@ -46,6 +46,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const relatedArticles = await getRelatedArticles(slug, article.section)
 
+  const wordCount = article.body.join(' ').split(/\s+/).length
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200))
+
   return (
     <main className="article-page">
       <ReadingProgress />
@@ -76,6 +79,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
         <div className="article-page__meta">
           <span>{article.author}</span>
+          <span>{readingTime} min read</span>
           <span>{article.publishedAtLabel}</span>
         </div>
       </div>
