@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/articles'
+import ScrollSpy from '@/app/components/ScrollSpy'
 
 const reportColumns = [
   {
@@ -89,21 +90,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             <span className="brand-mark__word">Byline</span>
             <span className="brand-mark__tag">AI-native reporting</span>
           </Link>
-          <nav className="top-nav" aria-label="Primary">
-            <a href="#top-story">Top story</a>
-            <a href="#latest">Approach</a>
-            <a href="#archive">Latest</a>
-            <a href="#method">Method</a>
-            <a href="#launch">Publishing</a>
-          </nav>
-        </div>
-        <div className="edition-bar">
-          <span>World</span>
-          <span>Business</span>
-          <span>Tech</span>
-          <span>Climate</span>
-          <span>Policy</span>
-          <span>Opinion</span>
+          <ScrollSpy />
         </div>
       </header>
 
@@ -117,7 +104,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             />
           </div>
           <div className="hero__content fade-up">
-            <p className="eyebrow">{leadStory.category}</p>
             <h1>{leadStory.title}</h1>
             <p className="hero__summary">{leadStory.summary}</p>
             <div className="hero__actions">
@@ -178,7 +164,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
                 style={{ animationDelay: `${index * 110}ms` }}
               >
                 <div className="archive-item__meta">
-                  <p className="story-stack__desk">{story.section}</p>
                   <p>{story.publishedAtLabel}</p>
                 </div>
                 <h3 className="archive-item__title">
