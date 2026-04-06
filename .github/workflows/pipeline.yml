@@ -18,7 +18,7 @@ on:
       limit:
         description: 'Max trends to process (0 = all)'
         required: false
-        default: '10'
+        default: '50'
         type: number
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
           PIPELINE_SECRET: ${{ secrets.PIPELINE_SECRET }}
         run: |
           SOURCE="${{ inputs.source || 'live' }}"
-          LIMIT="${{ inputs.limit || '10' }}"
+          LIMIT="${{ inputs.limit || '50' }}"
 
           BODY=$(jq -n \
             --arg secret "$PIPELINE_SECRET" \
