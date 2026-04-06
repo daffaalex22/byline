@@ -46,7 +46,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound()
   }
 
-  const relatedArticles = await getRelatedArticles(slug, article.section)
+  const relatedArticles = await getRelatedArticles(slug)
 
   const wordCount = article.body.join(' ').split(/\s+/).length
   const readingTime = Math.max(1, Math.ceil(wordCount / 200))

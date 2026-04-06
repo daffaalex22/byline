@@ -258,8 +258,10 @@ p {
 
 .hero__summary,
 .article-page__dek {
-  max-width: 40rem;
-  font-size: 1.06rem;
+  max-width: 38rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--muted);
 }
 
 .hero__actions {
@@ -588,10 +590,16 @@ p {
 }
 
 .article-body {
-  width: min(100%, 760px);
+  width: min(100%, 900px);
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  gap: 1.6rem;
+}
+
+.article-body p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.75;
+  color: var(--ink);
 }
 
 .reading-progress {
@@ -685,8 +693,10 @@ p {
 }
 
 .article-body__lede {
-  font-size: 1.14rem;
+  font-size: clamp(1.15rem, 2vw, 1.3rem);
+  line-height: 1.65;
   color: var(--ink);
+  font-weight: 500;
 }
 
 .share-buttons {
