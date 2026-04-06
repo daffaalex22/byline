@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        trend: ${{ fromJson(needs.dispatch.outputs.trends) | unique_by(.id) }}
+        trend: ${{ fromJson(needs.dispatch.outputs.trends) }}
       max-parallel: 2
       fail-fast: false
     steps:

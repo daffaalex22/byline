@@ -41,7 +41,13 @@ function normalizeGroup(group: VirloTrendGroup): NormalizedTrend[] {
 
 function normalizeTrends(response: VirloResponse): NormalizedTrend[] {
   const allTrends = response.data.flatMap(normalizeGroup)
-  return allTrends.sort((a, b) => a.ranking - b.ranking)
+  const seen = new Set<string>()
+  const unique = allTrends.filter((trend) => {
+    if (seen.has(trend.id)) return false
+    seen.add(trend.id)
+    return true
+  })
+  return unique.sort((a, b) => a.ranking - b.ranking)
 }
 
 async function fetchMockTrends(): Promise<VirloResponse> {
