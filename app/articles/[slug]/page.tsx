@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllArticles, getArticleBySlug } from '@/lib/articles'
+import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/lib/articles'
 import ReadingProgress from '@/app/components/ReadingProgress'
 import BackToTop from '@/app/components/BackToTop'
 import StickyNav from '@/app/components/StickyNav'
+import RelatedArticles from '@/app/components/RelatedArticles'
 
 type ArticlePageProps = {
   params: Promise<{
@@ -42,6 +43,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!article) {
     notFound()
   }
+
+  const relatedArticles = await getRelatedArticles(slug, article.section)
 
   return (
     <main className="article-page">
@@ -89,6 +92,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p key={paragraph}>{paragraph}</p>
         ))}
       </article>
+      <RelatedArticles articles={relatedArticles} />
     </main>
   )
 }
