@@ -96,13 +96,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
       <main>
         <section className="hero" id="top-story">
-          <div className="hero__image-wrap">
-            <img
-              className="hero__image"
-              src={leadStory.image}
-              alt={leadStory.imageAlt}
-            />
-          </div>
+          {leadStory.image && (
+            <div className="hero__image-wrap">
+              <img
+                className="hero__image"
+                src={leadStory.image}
+                alt={leadStory.imageAlt}
+              />
+            </div>
+          )}
           <div className="hero__content fade-up">
             <h1>{leadStory.title}</h1>
             <p className="hero__summary">{leadStory.summary}</p>
