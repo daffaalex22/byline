@@ -27,12 +27,12 @@ const processSteps = [
   {
     step: '01',
     title: 'Signal intake',
-    description: 'Wire feeds, documents, transcripts, and social chatter are triaged into live reporting threads.',
+    description: 'Virlo.ai surfaces the latest trends, which are triaged into live reporting threads.',
   },
   {
     step: '02',
-    title: 'Angle selection',
-    description: 'The system scores what is new, what is material, and what deserves a real piece rather than a summary.',
+    title: 'Story selection',
+    description: 'Trends are filtered and scored to identify which ones are new, material, and worth creating a real piece rather than a summary.',
   },
   {
     step: '03',
@@ -42,7 +42,7 @@ const processSteps = [
   {
     step: '04',
     title: 'Reader surface',
-    description: 'The final output lands as a calm, readable story package with context, evidence, and follow-on questions.',
+    description: 'The final output is published to the platform, landing as a calm, readable story package with context and evidence.',
   },
 ]
 
@@ -128,10 +128,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <section className="front-grid" id="latest">
           <div className="front-grid__lead fade-up">
             <p className="section-label">Byline approach</p>
-            <h2>A front page designed like a newsroom, not a prompt box</h2>
+            <h2>Strong lead. Clear hierarchy. Stories selected by consequence, not chatter.</h2>
             <p>
-              The first thing readers should feel is editorial confidence: a strong lead, clear hierarchy,
-              and a sense that the story selection is driven by consequence rather than chatter.
+              The first thing you feel is editorial confidence: a strong lead, clear hierarchy,
+              and a sense that story selection is driven by consequence rather than chatter.
             </p>
           </div>
           <div className="front-grid__columns">
@@ -152,10 +152,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <section className="split-section" id="archive">
           <div className="split-section__feature fade-up">
             <p className="section-label">Latest coverage</p>
-            <h2>A plain date-sorted archive that lets the reporting carry the page</h2>
+            <h2>A date-sorted archive. The reporting speaks for itself.</h2>
             <p>
-              The featured story leads the homepage. Everything below it should read like a live news desk:
-              timestamped, orderly, and easy to scan without repeating the hero.
+              The featured story leads the homepage. Everything below is timestamped, orderly,
+              and easy to scan.
             </p>
           </div>
           <div className="archive-list">
@@ -201,7 +201,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <section className="process" id="method">
           <div className="process__intro fade-up">
             <p className="section-label">Editorial method</p>
-            <h2>Automation should be visible in the workflow, not obvious in the writing</h2>
+            <h2>From trend to published story</h2>
           </div>
           <div className="process__grid">
             {processSteps.map((item, index) => (
