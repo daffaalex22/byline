@@ -14,6 +14,7 @@ type PublishPayload = {
   author?: string
   publishedAt?: string
   status?: 'draft' | 'published' | 'scheduled'
+  trendId?: string
 }
 
 export async function POST(request: Request) {
@@ -70,6 +71,7 @@ export async function POST(request: Request) {
     author: payload.author,
     publishedAt: payload.publishedAt,
     status: payload.status ?? 'published',
+    trendId: payload.trendId,
   })
 
   return NextResponse.json(
