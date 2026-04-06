@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import ReadingProgress from '@/app/components/ReadingProgress'
 import BackToTop from '@/app/components/BackToTop'
+import StickyNav from '@/app/components/StickyNav'
 
 type ArticlePageProps = {
   params: Promise<{
@@ -46,6 +47,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <main className="article-page">
       <ReadingProgress />
       <BackToTop />
+      <StickyNav title={article.title} />
       <header className="article-nav" aria-label="Article navigation">
         <div className="article-nav__brand">
           <Link className="article-nav__logo" href="/">
