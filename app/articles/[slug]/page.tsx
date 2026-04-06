@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
+import ReadingProgress from '@/app/components/ReadingProgress'
 
 type ArticlePageProps = {
   params: Promise<{
@@ -42,6 +43,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="article-page">
+      <ReadingProgress />
       <header className="article-nav" aria-label="Article navigation">
         <div className="article-nav__brand">
           <Link className="article-nav__logo" href="/">

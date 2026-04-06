@@ -593,6 +593,18 @@ p {
   gap: 1.3rem;
 }
 
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: left;
+  z-index: 100;
+  transition: transform 50ms linear;
+}
+
 .article-body__lede {
   font-size: 1.14rem;
   color: var(--ink);
