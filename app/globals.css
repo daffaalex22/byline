@@ -471,6 +471,10 @@ p {
   max-width: 12ch;
 }
 
+.code-pill:hover {
+  background-color: rgba(255, 248, 241, 0.15);
+}
+
 .code-pill {
   width: fit-content;
   border-color: rgba(255, 248, 241, 0.45);
