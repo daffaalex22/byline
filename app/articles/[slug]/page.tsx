@@ -7,6 +7,7 @@ import BackToTop from '@/app/components/BackToTop'
 import StickyNav from '@/app/components/StickyNav'
 import RelatedArticles from '@/app/components/RelatedArticles'
 import ShareButtons from '@/app/components/ShareButtons'
+import ArticleImage from '@/app/components/ArticleImage'
 
 type ArticlePageProps = {
   params: Promise<{
@@ -89,9 +90,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       </div>
 
       {article.image && (
-        <div className="article-page__image-wrap">
-          <img className="article-page__image" src={article.image} alt={article.imageAlt ?? ''} />
-        </div>
+        <ArticleImage src={article.image} alt={article.imageAlt ?? ''} />
       )}
 
       <article className="article-body">
