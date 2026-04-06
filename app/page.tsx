@@ -180,14 +180,14 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               </span>
               <div className="archive-pagination__links">
                 {safePage > 1 ? (
-                  <Link className="button button--ghost button--compact" href={`/?page=${safePage - 1}#archive`}>
+                  <Link className="button button--ghost button--compact" href={`/?page=${safePage - 1}`} scroll={false}>
                     Newer
                   </Link>
                 ) : (
                   <span className="button button--ghost button--compact button--disabled">Newer</span>
                 )}
                 {safePage < totalPages ? (
-                  <Link className="button button--ghost button--compact" href={`/?page=${safePage + 1}#archive`}>
+                  <Link className="button button--ghost button--compact" href={`/?page=${safePage + 1}`} scroll={false}>
                     Older
                   </Link>
                 ) : (
